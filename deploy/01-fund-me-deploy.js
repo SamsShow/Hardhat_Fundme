@@ -10,7 +10,8 @@ require("dotenv").config()
 
 module.exports = async ({ getNamedAccounts, deployments }) => {
     const { deploy, log } = deployments
-    const { deployer } = await getNamedAccounts()
+    // const { deployer } = await getNamedAccounts()
+    const [account] = await ethers.getSigners()
     const chainId = network.config.chainId
 
 // This block of code checks if the chainId is equal to 31337. If it is, it means the code is running on a local development network.
@@ -37,7 +38,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     log("----------------------------------------------------")
     log("Deploying FundMe and waiting for confirmations...")
     const fundMe = await deploy("FundMe", {
-        from: deployer,
+        from: account.address,
         args: [ethUsdPriceFeedAddress],
         log: true,
         // we need to wait if on a live network so we can verify properly
