@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "solhint 'contracts/**/*.sol'"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +15,8 @@
     "@nomicfoundation/hardhat-verify": "^2.0.5",
     "@nomiclabs/hardhat-solhint": "^3.0.1",
     "hardhat": "^2.22.2",
-    "hardhat-deploy-ethers": "^0.4.1"
+    "hardhat-deploy-ethers": "^0.4.1",
+    "solhint": "^4.5.4"
   },
   "dependencies": {
     "@chainlink/contracts": "^1.0.0",
